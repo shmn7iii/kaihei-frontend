@@ -1,7 +1,6 @@
-# Fresh project
+# kaihei-frontend
 
-Your new Fresh project is ready to go. You can follow the Fresh "Getting
-Started" guide here: https://fresh.deno.dev/docs/getting-started
+Frontend of [Kaihei](https://kaihei.shmn7iii.net/)
 
 ### Usage
 
@@ -12,5 +11,3 @@ Then start the project:
 ```
 deno task start
 ```
-
-This will watch the project directory and restart as necessary.
