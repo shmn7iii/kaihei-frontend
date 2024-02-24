@@ -46,6 +46,8 @@ export const useKaiheiLocalQueryApi = (): useKaiheiLocalQueryApiResult => {
 
   const url = "https://kaihei-api.shmn7iii.net/api/local/query";
 
+  const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
+
   const getKaiheiLocalQueryApi = async () => {
     setLoading(true);
 
@@ -61,6 +63,11 @@ export const useKaiheiLocalQueryApi = (): useKaiheiLocalQueryApiResult => {
         Online: !!data.Host,
         ApiResponse: data,
       };
+
+      // 不通時、レスが早すぎるのでちょっと待つ
+      if (!status.Online) {
+        await sleep(2700);
+      }
 
       setResult(status);
     } catch (err) {
