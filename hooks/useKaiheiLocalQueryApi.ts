@@ -28,7 +28,7 @@ export interface KaiheiStatus {
   ApiResponse: ApiResponse | null;
 }
 
-export type useKaiheiStatusResult = [
+export type useKaiheiLocalQueryApiResult = [
   {
     loading: boolean;
     error: string | null;
@@ -36,7 +36,7 @@ export type useKaiheiStatusResult = [
   },
 ];
 
-export const useKaiheiStatus = (): useKaiheiStatusResult => {
+export const useKaiheiLocalQueryApi = (): useKaiheiLocalQueryApiResult => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<KaiheiStatus>({
@@ -44,15 +44,14 @@ export const useKaiheiStatus = (): useKaiheiStatusResult => {
     ApiResponse: null,
   });
 
-  const url = "https://kaihei-api.shmn7iii.net/api/status";
+  const url = "https://kaihei-api.shmn7iii.net/api/local/query";
 
-  const getKaiheiApiStatus = async () => {
+  const getKaiheiLocalQueryApi = async () => {
     setLoading(true);
 
     try {
       const response = await fetch(new URL(url), {
         cache: "no-store",
-        // mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
@@ -72,7 +71,7 @@ export const useKaiheiStatus = (): useKaiheiStatusResult => {
   };
 
   useEffect(() => {
-    getKaiheiApiStatus();
+    getKaiheiLocalQueryApi();
   }, []);
 
   return [{ loading, error, result }];

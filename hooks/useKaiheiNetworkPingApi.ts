@@ -1,29 +1,21 @@
 import { useEffect, useState } from "preact/hooks";
 
-export interface Response {
-  online: boolean;
-}
-
-export type useMcstatusIoApiResult = [
+export type useKaiheiNetworkPingApiResult = [
   {
     loading: boolean;
     error: string | null;
-    result: Response;
+    result: boolean;
   },
 ];
 
-export const useMcstatusIoApi = (
-  hostName: string,
-): useMcstatusIoApiResult => {
+export const useKaiheiNetworkPingApi = (): useKaiheiNetworkPingApiResult => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<Response>({
-    online: false,
-  });
+  const [result, setResult] = useState(false);
 
-  const url = "https://api.mcstatus.io/v2/status/java/" + hostName;
+  const url = "https://kaihei-api.shmn7iii.net/api/network/ping";
 
-  const getKaiheiApiStatus = async () => {
+  const getKaiheiNetworkPingApi = async () => {
     setLoading(true);
 
     try {
@@ -33,9 +25,9 @@ export const useMcstatusIoApi = (
           "Content-Type": "application/json",
         },
       });
-      const data = (await response.json()) as Response;
+      const data = await response.json();
 
-      setResult(data);
+      setResult(data.Result);
     } catch (err) {
       setError("Error occurred: " + err);
     } finally {
@@ -44,7 +36,7 @@ export const useMcstatusIoApi = (
   };
 
   useEffect(() => {
-    getKaiheiApiStatus();
+    getKaiheiNetworkPingApi();
   }, []);
 
   return [{ loading, error, result }];

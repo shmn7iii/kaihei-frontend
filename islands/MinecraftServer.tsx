@@ -1,8 +1,8 @@
 import { Status } from "../components/Status.tsx";
-import { useKaiheiStatus } from "../hooks/useKaiheiStatus.ts";
+import { useKaiheiLocalQueryApi } from "../hooks/useKaiheiLocalQueryApi.ts";
 
 export function MinecraftServer() {
-  const [{ loading, error, result }] = useKaiheiStatus();
+  const [{ loading, error, result }] = useKaiheiLocalQueryApi();
 
   return (
     <div>
