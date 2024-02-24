@@ -8,7 +8,7 @@ export default function App({ Component }: PageProps) {
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>kaihei-frontend</title>
+        <title>Kaihei</title>
         <link rel="stylesheet" href="/styles.css" />
         <script
           src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js"
