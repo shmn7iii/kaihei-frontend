@@ -15,8 +15,6 @@ export const useKaiheiNetworkPingApi = (): useKaiheiNetworkPingApiResult => {
 
   const url = "https://kaihei-api.shmn7iii.net/api/network/ping";
 
-  const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
-
   const getKaiheiNetworkPingApi = async () => {
     setLoading(true);
 
@@ -28,11 +26,6 @@ export const useKaiheiNetworkPingApi = (): useKaiheiNetworkPingApiResult => {
         },
       });
       const data = await response.json();
-
-      // 不通時、レスが早すぎるのでちょっと待つ
-      if (!data.Result) {
-        await sleep(3200);
-      }
 
       setResult(data.Result);
     } catch (err) {
