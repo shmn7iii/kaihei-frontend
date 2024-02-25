@@ -13,6 +13,7 @@ const Loading = (props: StatusPaneProps) => {
           src={"/images/icons/loading.svg"}
           width="25"
           alt={"loading badge"}
+          className="animate-spin"
         />
       </div>
       <div className="my-6">
@@ -23,7 +24,7 @@ const Loading = (props: StatusPaneProps) => {
           className="grayscale animate-pulse"
         />
       </div>
-      <span class="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded border border-gray-400 animate-pulse">
+      <span className="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded border border-gray-300">
         Loading...
       </span>
     </>
@@ -51,7 +52,7 @@ const Failure = (props: StatusPaneProps) => {
       <div className="flex gap-2">
         {props.badges.map((badge) => {
           return (
-            <span class="bg-red-100 text-red-800 text-sm font-medium px-2.5 py-0.5 rounded border border-red-400">
+            <span className="bg-red-100 text-red-800 text-sm font-medium px-2.5 py-0.5 rounded border border-red-400">
               {badge}
             </span>
           );
@@ -82,7 +83,7 @@ const Success = (props: StatusPaneProps) => {
       <div className="flex gap-2">
         {props.badges.map((badge) => {
           return (
-            <span class="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded border border-green-400">
+            <span className="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded border border-green-400">
               {badge}
             </span>
           );

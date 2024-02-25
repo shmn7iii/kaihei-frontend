@@ -8,9 +8,10 @@ export function MinecraftServer() {
     <div>
       <StatusPane
         title="Server"
-        badges={result?.Err
-          ? ["Server down"]
-          : [result?.Version || "Unknown version"]}
+        badges={result?.Err ? ["Server down"] : [
+          result?.MOTD || "No MOTD",
+          result?.Version || "Unknown version",
+        ]}
         state={loading
           ? "loading"
           : error || result?.Err

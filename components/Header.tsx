@@ -4,9 +4,9 @@ export function Header() {
   return (
     <div className="relative">
       <header className="absolute w-full">
-        <div class="flex items-center gap-1">
+        <div className="flex items-center gap-1">
           <BrandMinecraft aria-hidden="true" />
-          <div class="text-2xl ml-1 font-bold">
+          <div className="text-2xl ml-1 font-bold">
             Kaihei
           </div>
         </div>

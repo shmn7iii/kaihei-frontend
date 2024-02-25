@@ -8,7 +8,7 @@ export function DomainResolvable() {
     <div>
       <StatusPane
         title="Network"
-        badges={[result?.Result ? result?.FQDN : "Can't reached"]}
+        badges={[result?.Result ? result?.FQDN : "Unreachable"]}
         state={loading
           ? "loading"
           : error || !result?.Result
