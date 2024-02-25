@@ -8,12 +8,12 @@ export function MinecraftServer() {
     <div>
       <Status
         title="Server"
-        badges={result?.Online && result?.ApiResponse?.Version
-          ? ["mc.shmn7iii.net", result?.ApiResponse?.Version]
-          : ["Server down"]}
+        badges={result?.Err
+          ? ["Server down"]
+          : [result?.Version || "Unknown version"]}
         state={loading
           ? "loading"
-          : error || !result?.Online
+          : error || result?.Err
           ? "failure"
           : "success"}
       />

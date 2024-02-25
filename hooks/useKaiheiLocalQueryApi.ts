@@ -10,7 +10,7 @@ export interface Plugin {
   Version: string;
 }
 
-export interface ApiResponse {
+export interface Response {
   MOTD: string;
   Version: string;
   ServerVersion: string;
@@ -23,26 +23,18 @@ export interface ApiResponse {
   Err: Error | string;
 }
 
-export interface KaiheiStatus {
-  Online: boolean;
-  ApiResponse: ApiResponse | null;
-}
-
 export type useKaiheiLocalQueryApiResult = [
   {
     loading: boolean;
     error: string | null;
-    result: KaiheiStatus;
+    result: Response | null;
   },
 ];
 
 export const useKaiheiLocalQueryApi = (): useKaiheiLocalQueryApiResult => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<KaiheiStatus>({
-    Online: false,
-    ApiResponse: null,
-  });
+  const [result, setResult] = useState<Response | null>(null);
 
   const url = "https://kaihei-api.shmn7iii.net/api/local/query";
 
@@ -56,13 +48,9 @@ export const useKaiheiLocalQueryApi = (): useKaiheiLocalQueryApiResult => {
           "Content-Type": "application/json",
         },
       });
-      const data = (await response.json()) as ApiResponse;
-      const status: KaiheiStatus = {
-        Online: !!data.Host,
-        ApiResponse: data,
-      };
+      const data = (await response.json()) as Response;
 
-      setResult(status);
+      setResult(data);
     } catch (err) {
       setError("Error occurred: " + err);
     } finally {

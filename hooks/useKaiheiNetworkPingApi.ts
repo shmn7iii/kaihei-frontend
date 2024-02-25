@@ -1,17 +1,22 @@
 import { useEffect, useState } from "preact/hooks";
 
+export interface Response {
+  Result: boolean;
+  FQDN: string;
+}
+
 export type useKaiheiNetworkPingApiResult = [
   {
     loading: boolean;
     error: string | null;
-    result: boolean;
+    result: Response | null;
   },
 ];
 
 export const useKaiheiNetworkPingApi = (): useKaiheiNetworkPingApiResult => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState(false);
+  const [result, setResult] = useState<Response | null>(null);
 
   const url = "https://kaihei-api.shmn7iii.net/api/network/ping";
 
@@ -25,9 +30,9 @@ export const useKaiheiNetworkPingApi = (): useKaiheiNetworkPingApiResult => {
           "Content-Type": "application/json",
         },
       });
-      const data = await response.json();
+      const data = (await response.json()) as Response;
 
-      setResult(data.Result);
+      setResult(data);
     } catch (err) {
       setError("Error occurred: " + err);
     } finally {
