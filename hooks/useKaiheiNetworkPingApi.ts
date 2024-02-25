@@ -18,6 +18,7 @@ export const useKaiheiNetworkPingApi = (): useKaiheiNetworkPingApiResult => {
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<Response | null>(null);
 
+  // TODO: move to .env
   const url = "https://kaihei-api.shmn7iii.net/api/network/ping";
 
   const getKaiheiNetworkPingApi = async () => {
