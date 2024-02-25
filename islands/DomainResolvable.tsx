@@ -1,4 +1,4 @@
-import { Status } from "../components/Status.tsx";
+import { StatusPane } from "../components/StatusPane.tsx";
 import { useKaiheiNetworkPingApi } from "../hooks/useKaiheiNetworkPingApi.ts";
 
 export function DomainResolvable() {
@@ -6,7 +6,7 @@ export function DomainResolvable() {
 
   return (
     <div>
-      <Status
+      <StatusPane
         title="Network"
         badges={[result?.Result ? result?.FQDN : "Can't reached"]}
         state={loading

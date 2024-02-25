@@ -1,9 +1,9 @@
-import { Status } from "../components/Status.tsx";
+import { StatusPane } from "../components/StatusPane.tsx";
 
 export function Browser() {
   return (
     <div>
-      <Status
+      <StatusPane
         title="You"
         badges={["Fine"]}
         state={"success"}

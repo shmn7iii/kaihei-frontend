@@ -1,4 +1,4 @@
-import { Status } from "../components/Status.tsx";
+import { StatusPane } from "../components/StatusPane.tsx";
 import { useKaiheiLocalQueryApi } from "../hooks/useKaiheiLocalQueryApi.ts";
 
 export function MinecraftServer() {
@@ -6,7 +6,7 @@ export function MinecraftServer() {
 
   return (
     <div>
-      <Status
+      <StatusPane
         title="Server"
         badges={result?.Err
           ? ["Server down"]

@@ -1,10 +1,10 @@
-interface StatusProps {
+interface StatusPaneProps {
   state: "loading" | "failure" | "success";
   title: string;
   badges: string[];
 }
 
-const Loading = (props: StatusProps) => {
+const Loading = (props: StatusPaneProps) => {
   return (
     <>
       <div className="flex gap-1 items-center">
@@ -30,7 +30,7 @@ const Loading = (props: StatusProps) => {
   );
 };
 
-const Failure = (props: StatusProps) => {
+const Failure = (props: StatusPaneProps) => {
   return (
     <>
       <div className="flex gap-1 items-center">
@@ -61,7 +61,7 @@ const Failure = (props: StatusProps) => {
   );
 };
 
-const Success = (props: StatusProps) => {
+const Success = (props: StatusPaneProps) => {
   return (
     <>
       <div className="flex gap-1 items-center">
@@ -92,7 +92,7 @@ const Success = (props: StatusProps) => {
   );
 };
 
-export function Status(props: StatusProps) {
+export function StatusPane(props: StatusPaneProps) {
   return (
     <div className="w-48 flex flex-col items-center">
       {props.state === "loading" && <Loading {...props} />}
