@@ -1,13 +1,13 @@
 # kaihei-frontend
 
-Frontend of [Kaihei](https://kaihei.shmn7iii.net/)
+Frontend of [Kaihei](https://kaihei.shmn7iii.net/).
+![GHKeIQaa4AA0S8j](https://github.com/shmn7iii/kaihei-frontend/assets/46078198/12a7e3b1-4670-4769-8367-acd14d6d58f7)
+
 
 ### Usage
 
-Make sure to install Deno: https://deno.land/manual/getting_started/installation
-
-Then start the project:
+Built with Deno and Fresh.
 
 ```
-deno task start
+$ deno task start
 ```
