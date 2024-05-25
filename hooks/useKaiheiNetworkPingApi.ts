@@ -18,19 +18,19 @@ export const useKaiheiNetworkPingApi = (): useKaiheiNetworkPingApiResult => {
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<Response | null>(null);
 
-  // TODO: move to .env
-  const url = "https://kaihei-api.shmn7iii.net/api/network/ping";
-
   const getKaiheiNetworkPingApi = async () => {
     setLoading(true);
 
     try {
-      const response = await fetch(new URL(url), {
-        cache: "no-store",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "./api/network/ping",
+        {
+          cache: "no-store",
+          headers: {
+            "Content-Type": "application/json",
+          },
         },
-      });
+      );
       const data = (await response.json()) as Response;
 
       setResult(data);
