@@ -4,6 +4,8 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $api_local_query_index from "./routes/api/local/query/index.ts";
+import * as $api_network_ping_index from "./routes/api/network/ping/index.ts";
 import * as $index from "./routes/index.tsx";
 import * as $Browser from "./islands/Browser.tsx";
 import * as $DomainResolvable from "./islands/DomainResolvable.tsx";
@@ -14,6 +16,8 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/api/local/query/index.ts": $api_local_query_index,
+    "./routes/api/network/ping/index.ts": $api_network_ping_index,
     "./routes/index.tsx": $index,
   },
   islands: {
